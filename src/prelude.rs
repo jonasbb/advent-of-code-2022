@@ -9,3 +9,4 @@ pub use std::collections::{
     BTreeMap, BTreeMap as Map, BTreeSet, BTreeSet as Set, HashMap, HashSet,
 };
 pub use std::str::FromStr;
+pub use inpt::{inpt,Inpt};
