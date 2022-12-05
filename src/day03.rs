@@ -27,13 +27,13 @@
 //! ```
 //!
 //! * The first rucksack contains the items `vJrwpWtwJgWrhcsFMMfFFhFp`, which means its first compartment contains the items `vJrwpWtwJgWr`, while the second compartment contains the items `hcsFMMfFFhFp`.
-//!     The only item type that appears in both compartments is lowercase `_p_`.
+//!     The only item type that appears in both compartments is lowercase _`p`_.
 //! * The second rucksack's compartments contain `jqHRNqRjqzjGDLGL` and `rsFMfFZSrLrFZsSL`.
-//!     The only item type that appears in both compartments is uppercase `_L_`.
-//! * The third rucksack's compartments contain `PmmdzqPrV` and `vPwwTWBwg`; the only common item type is uppercase `_P_`.
-//! * The fourth rucksack's compartments only share item type `_v_`.
-//! * The fifth rucksack's compartments only share item type `_t_`.
-//! * The sixth rucksack's compartments only share item type `_s_`.
+//!     The only item type that appears in both compartments is uppercase _`L`_.
+//! * The third rucksack's compartments contain `PmmdzqPrV` and `vPwwTWBwg`; the only common item type is uppercase _`P`_.
+//! * The fourth rucksack's compartments only share item type _`v`_.
+//! * The fifth rucksack's compartments only share item type _`t`_.
+//! * The sixth rucksack's compartments only share item type _`s`_.
 //!
 //! To help prioritize item rearrangement, every item type can be converted to a _priority_:
 //!
