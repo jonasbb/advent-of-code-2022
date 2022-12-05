@@ -40,7 +40,7 @@
 //! * Lowercase item types `a` through `z` have priorities 1 through 26.
 //! * Uppercase item types `A` through `Z` have priorities 27 through 52.
 //!
-//! In the above example, the priority of the item type that appears in both compartments of each rucksack is 16 (`p`), 38 (`L`), 42 (`P`), 22 (`v`), 20 (`t`), and 19 (`s`); the sum of these is `_157_`.
+//! In the above example, the priority of the item type that appears in both compartments of each rucksack is 16 (`p`), 38 (`L`), 42 (`P`), 22 (`v`), 20 (`t`), and 19 (`s`); the sum of these is _`157`_.
 //!
 //! Find the item type that appears in both compartments of each rucksack.
 //! _What is the sum of the priorities of those item types?_
@@ -81,7 +81,7 @@
 //! In the second group, their badge item type must be `Z`.
 //!
 //! Priorities for these items must still be found to organize the sticker attachment efforts: here, they are 18 (`r`) for the first group and 52 (`Z`) for the second group.
-//! The sum of these is `_70_`.
+//! The sum of these is _`70`_.
 //!
 //! Find the item type that corresponds to the badges of each three-Elf group.
 //! _What is the sum of the priorities of those item types?_
