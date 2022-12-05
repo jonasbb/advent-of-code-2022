@@ -184,27 +184,67 @@ impl MovePart2 {
     }
 }
 
-#[aoc_runner_derive::aoc_generator(day2, part1)]
-fn input_generator(input: &str) -> Vec<MovePart1> {
+#[aoc_runner_derive::aoc_generator(day2, part1, Complex)]
+fn input_generator_complex(input: &str) -> Vec<MovePart1> {
     input.lines().map(|line| inpt(line).unwrap()).collect()
 }
 
-#[aoc_runner_derive::aoc_generator(day2, part2)]
-fn input_generator_part2(input: &str) -> Vec<MovePart2> {
+#[aoc_runner_derive::aoc_generator(day2, part2, Complex)]
+fn input_generator_part2_complex(input: &str) -> Vec<MovePart2> {
     input.lines().map(|line| inpt(line).unwrap()).collect()
 }
 
-#[aoc_runner_derive::aoc(day2, part1)]
-fn part1(input: &[MovePart1]) -> i32 {
+#[aoc_runner_derive::aoc(day2, part1, Complex)]
+fn part1_complex(input: &[MovePart1]) -> i32 {
     input.iter().map(|m| m.score()).sum()
 }
 
-#[aoc_runner_derive::aoc(day2, part2)]
-fn part2(input: &[MovePart2]) -> i32 {
+#[allow(clippy::identity_op)]
+#[aoc_runner_derive::aoc(day2, part1, Simple)]
+fn part1_simple(input: &str) -> i32 {
+    input.lines().map(|line| {
+        match line {
+            // First number for played symbol, second for outcome
+            "A X" => 1 + 3,
+            "A Y" => 2 + 6,
+            "A Z" => 3 + 0,
+            "B X" => 1 + 0,
+            "B Y" => 2 + 3,
+            "B Z" => 3 + 6,
+            "C X" => 1 + 6,
+            "C Y" => 2 + 0,
+            "C Z" => 3 + 3,
+            _ => panic!("Invalid input: {}", line),
+        }
+    }).sum()
+}
+
+#[aoc_runner_derive::aoc(day2, part2, Complex)]
+fn part2_complex(input: &[MovePart2]) -> i32 {
     input
         .iter()
         .map(|m| m.score())
         .sum()
+}
+
+#[allow(clippy::identity_op)]
+#[aoc_runner_derive::aoc(day2, part2, Simple)]
+fn part2_simple(input: &str) -> i32 {
+    input.lines().map(|line| {
+        match line {
+            // First number for played symbol, second for outcome
+            "A X" => 3 + 0,
+            "A Y" => 1 + 3,
+            "A Z" => 2 + 6,
+            "B X" => 1 + 0,
+            "B Y" => 2 + 3,
+            "B Z" => 3 + 6,
+            "C X" => 2 + 0,
+            "C Y" => 3 + 3,
+            "C Z" => 1 + 6,
+            _ => panic!("Invalid input: {}", line),
+        }
+    }).sum()
 }
 
 #[cfg(test)]
@@ -213,29 +253,57 @@ B X
 C Z";
 
 #[test]
-fn test_part1() -> Result<()> {
-    let values = input_generator(TEST_INPUT_1);
-    assert_eq!(15, part1(&values));
+fn test_part1_complex() -> Result<()> {
+    let values = input_generator_complex(TEST_INPUT_1);
+    assert_eq!(15, part1_complex(&values));
     Ok(())
 }
 
 #[test]
-fn test_part1_solution() -> Result<()> {
-    let values = input_generator(include_str!("../input/2022/day2.txt").trim());
-    assert_eq!(12679, part1(&values));
+fn test_part1_simple() -> Result<()> {
+    let values = TEST_INPUT_1;
+    assert_eq!(15, part1_simple(values));
     Ok(())
 }
 
 #[test]
-fn test_part2() -> Result<()> {
-    let values = input_generator_part2(TEST_INPUT_1);
-    assert_eq!(12, part2(&values));
+fn test_part1_solution_complex() -> Result<()> {
+    let values = input_generator_complex(include_str!("../input/2022/day2.txt").trim());
+    assert_eq!(12679, part1_complex(&values));
     Ok(())
 }
 
 #[test]
-fn test_part2_solution() -> Result<()> {
-    let values = input_generator_part2(include_str!("../input/2022/day2.txt").trim());
-    assert_eq!(14470, part2(&values));
+fn test_part1_solution_simple() -> Result<()> {
+    let values = include_str!("../input/2022/day2.txt").trim();
+    assert_eq!(12679, part1_simple(values));
+    Ok(())
+}
+
+#[test]
+fn test_part2_complex() -> Result<()> {
+    let values = input_generator_part2_complex(TEST_INPUT_1);
+    assert_eq!(12, part2_complex(&values));
+    Ok(())
+}
+
+#[test]
+fn test_part2_simple() -> Result<()> {
+    let values = TEST_INPUT_1;
+    assert_eq!(12, part2_simple(values));
+    Ok(())
+}
+
+#[test]
+fn test_part2_solution_complex() -> Result<()> {
+    let values = input_generator_part2_complex(include_str!("../input/2022/day2.txt").trim());
+    assert_eq!(14470, part2_complex(&values));
+    Ok(())
+}
+
+#[test]
+fn test_part2_solution_simple() -> Result<()> {
+    let values = include_str!("../input/2022/day2.txt").trim();
+    assert_eq!(14470, part2_simple(values));
     Ok(())
 }
